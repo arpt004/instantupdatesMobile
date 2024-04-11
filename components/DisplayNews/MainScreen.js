@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ScrollView, Button, RefreshControl } from "react-native";
 import { PanGestureHandler } from 'react-native-gesture-handler';
 import NewsComponent from "./NewsComponent";
 
@@ -14,7 +14,7 @@ function RenderData({cardToDisplay}) {
     )
 }
 
-export default function MainScreen({cards}) {
+export default function MainScreen({ cards, refresh, pullMe }) {
 
     const [renderCard, SetRenderCard ] = useState(cards[0])
     const [time, setTime ] = useState(0)
@@ -60,13 +60,23 @@ export default function MainScreen({cards}) {
     }
 
     return(
-        <PanGestureHandler
-            onGestureEvent={onPanGestureEvent}
+        <ScrollView 
+            refreshControl={
+                <RefreshControl 
+                    refreshing={refresh}
+                    onRefresh={() => pullMe()}
+                />
+            }
+            style={styles.container}
         >
-            <View style={styles.container}>
-                <RenderData cardToDisplay={renderCard}/>      
-            </View>
-        </PanGestureHandler>
+            <PanGestureHandler
+                onGestureEvent={onPanGestureEvent}
+            >
+                <View style={styles.container}>
+                    <RenderData cardToDisplay={renderCard}/>  
+                </View>
+            </PanGestureHandler>
+        </ScrollView>
     )
 }
 

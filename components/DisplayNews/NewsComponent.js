@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',  
     },
     description: {
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: 'light',
         lineHeight: 20,
     }
