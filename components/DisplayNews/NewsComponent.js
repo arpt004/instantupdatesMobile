@@ -23,7 +23,7 @@ export default function NewsComponent({cardToDisplay}) {
                 </View>
 
                 <View>
-                    <Text style={styles.description}> { cardToDisplay.description } </Text>
+                    <Text style={styles.description}>{ cardToDisplay.description } </Text>
                 </View>
             </View>
         </View>
@@ -49,8 +49,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',  
     },
     description: {
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: 'light',
-        lineHeight: 20,
+        lineHeight: 25,   
     }
 })

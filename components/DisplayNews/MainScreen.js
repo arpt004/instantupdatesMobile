@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, View, ScrollView, Button, RefreshControl } from "react-native";
+import { StyleSheet, View, ScrollView, RefreshControl } from "react-native";
 import { PanGestureHandler } from 'react-native-gesture-handler';
 import NewsComponent from "./NewsComponent";
 
