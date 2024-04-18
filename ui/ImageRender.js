@@ -1,14 +1,24 @@
 import { useState } from "react";
 import { StyleSheet, Pressable, Image, View, Text, Modal, TouchableOpacity  } from "react-native";
+import ImageViewer from 'react-native-image-zoom-viewer';
 
 export default function ImageRender({path}) {    
 
     const [modalVisible, setModalVisible] = useState(false);
 
     function imagePressHandler() {
-        console.log('imagePressHandler');
+        // console.log('imagePressHandler');
         setModalVisible(true)
     }
+
+    const images = [
+        { url: path },
+    ];
+
+    // <Image
+    //     source={{ uri: path }}
+    //     style={styles.modalImage}
+    // /> 
 
 
     return(
@@ -23,11 +33,12 @@ export default function ImageRender({path}) {
             visible={modalVisible}
             onRequestClose={() => setModalVisible(false)}
         >
-            <View style={styles.modalContainer}>
-                <Image
-                    source={{ uri: path }}
+            <View style={styles.modalContainer}>                
+                <ImageViewer
+                    imageUrls={images}
+                    renderIndicator={() => null}
                     style={styles.modalImage}
-                />                
+                />
             </View>
 
             <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.closeButton}>
