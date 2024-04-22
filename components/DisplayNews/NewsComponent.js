@@ -13,7 +13,7 @@ export default function NewsComponent({cardToDisplay}) {
 
             <View style={styles.container}>
                 <View>
-                    <Text style={styles.title}> { cardToDisplay.title } </Text>
+                    <Text style={styles.title}>{ cardToDisplay.title } </Text>
                     <Pressable onPress={sourcePressHandler}> 
                         <Text style={styles.author}> 
                             <Text style={styles.source}> {cardToDisplay.source} </Text>
